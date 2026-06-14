@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: face-classifier
+
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: face-classifier
+
+  template:
+    metadata:
+      labels:
+        app: face-classifier
+
+    spec:
+      containers:
+      - name: face-classifier
+        image: aishwaryamanyar/face-classifier:latest
+
+        ports:
+        - containerPort: 5000
